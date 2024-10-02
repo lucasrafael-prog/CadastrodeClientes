@@ -1,4 +1,4 @@
-# CadastrodeClientes
+# Cadastro de Clientes
 Este projeto é uma aplicação web de um Cadastro de Clientes desenvolvida em ASP.NET Core MVC utilizando Entity Framework Core para o acesso ao banco de dados e o padrão Domain-Driven Design (DDD) para organizar as camadas do projeto. A aplicação permite a criação, edição, exclusão e visualização de clientes e seus respectivos endereços.
 
 # Tecnologias Utilizadas
