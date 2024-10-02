@@ -1,0 +1,60 @@
+﻿@using CadastrodeClientes.Domain.Entities
+@model List<Cliente>
+@{
+}
+
+<!-- Título da página -->
+<h2 class="text-center mb-5">Lista de Clientes</h2>
+
+<!-- Linha para o botão de adicionar um novo cliente -->
+<div class="row mb-5">
+    <div class="col">
+        <!-- Botão que redireciona para a página de criação de um novo cliente -->
+        <a class="btn btn-primary" asp-controller="Cliente" asp-action="Create">Novo Cliente</a>
+    </div>
+    <div class="col">
+        <!-- Coluna vazia para alinhamento ou outros conteúdos futuros -->
+    </div>
+</div>
+
+<!-- Tabela que lista os clientes -->
+<table class="table">
+    <thead>
+        <!-- Cabeçalho da tabela com os títulos das colunas -->
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Endereço</th>
+            <th>Tipo de Endereço</th>
+            <th>Data do Pedido</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- Loop que percorre todos os clientes no modelo (List<Cliente>) -->
+        @foreach (var cliente in Model)
+        {
+            <tr>
+                <!-- Exibindo as propriedades do cliente em cada célula da tabela -->
+                <td>@cliente.Id</td>
+                <td>@cliente.Nome</td>
+                <td>@cliente.Telefone</td>
+                <td>@cliente.Email</td>
+                <td>@cliente.Endereco</td>
+                <td>@cliente.TipoEndereco</td>
+                <td>@cliente.DataDoPedido</td>
+
+                <!-- Coluna para os botões de Editar e Deletar -->
+                <td style="white-space:nowrap">
+                    <!-- Botão de Editar, que redireciona para a página de edição com base no ID do cliente -->
+                    <a class="btn btn-primary btn-sm" asp-controller="Cliente" asp-action="Edit" asp-route-id="@cliente.Id">Editar</a>
+
+                    <!-- Botão de Deletar, que redireciona para a ação de deletar, com uma confirmação antes de enviar -->
+                    <a class="btn btn-danger btn-sm" asp-controller="Cliente" asp-action="Delete" asp-route-id="@cliente.Id" onclick="return confirm('Tem certeza?')">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

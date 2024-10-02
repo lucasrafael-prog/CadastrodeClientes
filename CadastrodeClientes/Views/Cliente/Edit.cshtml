@@ -1,0 +1,98 @@
+﻿@model ClienteDto
+@{
+}
+
+<!-- Div principal contendo o formulário de edição de cliente -->
+<div class="row">
+    <!-- Coluna centralizada e estilizada para o formulário -->
+    <div class="col-md-8 mxalign-self-auto rounded border p-3">
+        <!-- Título do formulário -->
+        <h2 class="text-center mb-5">Editar Cliente</h2>
+
+        <!-- Início do formulário, usando método POST para envio dos dados -->
+        <form method="post" enctype="multipart/form-data">
+
+            <!-- Campo para exibir o ID do cliente (somente leitura) -->
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Id</label> <!-- Rótulo do campo -->
+                <div class="col-sm-8">
+                    <input class="form-control-plaintext" readonly value="@ViewData["ClienteId"]" /> <!-- Campo de texto que exibe o ID do cliente, apenas para visualização, sem possibilidade de edição -->
+                </div>
+            </div>
+
+            <!-- Campo para o Nome do cliente -->
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Nome</label> <!-- Rótulo do campo -->
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Nome" /> <!-- Campo de input ligado à propriedade 'Nome' do modelo -->
+                    <span asp-validation-for="Nome" class="text-danger"></span> <!-- Mensagem de validação para o campo 'Nome' -->
+                </div>
+            </div>
+
+            <!-- Campo para o Telefone do cliente -->
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Telefone</label> <!-- Rótulo do campo -->
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Telefone" /> <!-- Campo de input ligado à propriedade 'Telefone' -->
+                    <span asp-validation-for="Telefone" class="text-danger"></span> <!-- Mensagem de validação para o campo 'Telefone' -->
+                </div>
+            </div>
+
+            <!-- Campo para o Email do cliente -->
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Email</label> <!-- Rótulo do campo -->
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Email" /> <!-- Campo de input ligado à propriedade 'Email' -->
+                    <span asp-validation-for="Email" class="text-danger"></span> <!-- Mensagem de validação para o campo 'Email' -->
+                </div>
+            </div>
+
+            <!-- Campo para o Endereço do cliente -->
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Endereço</label> <!-- Rótulo do campo -->
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Endereco" /> <!-- Campo de input ligado à propriedade 'Endereco' -->
+                    <span asp-validation-for="Endereco" class="text-danger"></span> <!-- Mensagem de validação para o campo 'Endereco' -->
+                </div>
+            </div>
+
+            <!-- Campo para o Tipo de Endereço do cliente (Seleção) -->
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Tipo de Endereço</label> <!-- Rótulo do campo -->
+                <div class="col-sm-8">
+                    <select class="form-select" asp-for="TipoEndereco">
+                        <!-- Caixa de seleção para 'TipoEndereco' -->
+                        <!-- Opções de tipos de endereço -->
+                        <option value="Fiscal">Fiscal</option>
+                        <option value="Cobrança">Cobrança</option>
+                        <option value="Entrega">Entrega</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Campo para a Data do Pedido do cliente -->
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Data do Pedido</label> <!-- Rótulo do campo -->
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="DataDoPedido" /> <!-- Campo de input ligado à propriedade 'DataDoPedido' -->
+                    <span asp-validation-for="DataDoPedido" class="text-danger"></span> <!-- Mensagem de validação para o campo 'DataDoPedido' -->
+                </div>
+            </div>
+
+            <!-- Botões de ação (Salvar e Cancelar) -->
+            <div class="row">
+                <!-- Botão para submeter o formulário e salvar os dados editados -->
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+
+                <!-- Botão para cancelar a edição e voltar para a página principal de clientes -->
+                <div class="col-sm-4 d-grid">
+                    <a class="btn btn-outline-primary" asp-controller="Cliente" asp-action="Index" role="button">
+                        Cancelar
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
